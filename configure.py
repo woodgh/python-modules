@@ -15,7 +15,7 @@ class Configure:
 
             f.close()
             
-        except Exception, e:
+        except Exception as e:
             logging.exception("init to Logger..." + e)
 
     def get(self, key):
