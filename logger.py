@@ -21,5 +21,5 @@ class Logger:
                 format='[%(asctime)s] %(message)s'\
             )
             
-        except Exception, e:
+        except Exception as e:
             logging.exception("init to Logger..." + e)
