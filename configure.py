@@ -14,5 +14,8 @@ class Configure:
 
         f.close()
 
-    def get(self, key):
+    def get(self, key=None):
+        if key is None:
+            return self.envir
+        
         return self.envir[key]
