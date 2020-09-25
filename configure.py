@@ -9,14 +9,10 @@ class Configure:
     envir = dict()
 
     def __init__ (self, path):
-        try:
-            with io.open(path, 'r', encoding='utf-8-sig') as f:
-                self.envir = json.load(f)
+        with io.open(path, 'r', encoding='utf-8-sig') as f:
+            self.envir = json.load(f)
 
-            f.close()
-            
-        except Exception as e:
-            logging.exception("init to Logger..." + e)
+        f.close()
 
     def get(self, key):
         return self.envir[key]
