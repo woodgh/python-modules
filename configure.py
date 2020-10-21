@@ -5,14 +5,23 @@ import os
 import sys
 import json
 
+''' 
+    환경설정
+'''
 class Configure:
-    envir = dict()
+    ''' 생성자 '''
+    def __init__(self, path):
+        with io.open(path + '/app.json', 'r', encoding='utf-8-sig') as f:
+            doc = json.load(f)
 
-    def __init__ (self, path):
-        with io.open(path, 'r', encoding='utf-8-sig') as f:
-            self.envir = json.load(f)
+        for k, v in doc.items():
+            self.makeKey(k, v)
 
-        f.close()
+    ''' 환경설정 변수 생성하기 '''
+    def makeKey(self, key, val):
+        try:
+            for k, v in val.items():
+                self.makeKey(key + '_' + k, v)
 
-    def get(self, key):
-        return self.envir[key]
+        except Exception as e:
+            exec('self.%s=\'%s\'' % (key.upper(), val))
