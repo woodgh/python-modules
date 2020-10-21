@@ -1,19 +1,26 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
+import io 
 import os
 import sys
-import time
+import json
 import logging
 import datetime
 
+''' 
+    로그
+'''
 class Logger:
+    ''' 생성자 '''
     def __init__(self, path):
-        if not os.path.exists(path):
-            os.makedirs(path)
+        targetPath = path + '/logs/'
+
+        if not os.path.exists(targetPath):
+            os.makedirs(targetPath)
 
         try:
             logging.basicConfig(
-                filename= path + '/' + str(datetime.datetime.now().strftime("%Y_%m_%d.log")),\
+                filename= targetPath + str(datetime.datetime.now().strftime("%Y_%m_%d.log")),\
                 filemode= "a",\
                 level=logging.DEBUG,\
                 maxBytes=1024,\
@@ -22,4 +29,4 @@ class Logger:
             )
             
         except Exception as e:
-            logging.exception("init to Logger..." + e)
+            logging.exception(e)
