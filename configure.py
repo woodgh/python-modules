@@ -24,4 +24,7 @@ class Configure:
                 self.makeKey(key + '_' + k, v)
 
         except Exception as e:
-            exec('self.%s=\'%s\'' % (key.upper(), val))
+            if isinstance(val, basestring):
+                exec('self.%s=\'%s\'' % (key.upper(), val))
+            else:
+                exec('self.%s=%s' % (key.upper(), val))

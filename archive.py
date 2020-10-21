@@ -26,7 +26,7 @@ class Archive:
         except Exception as e: 
             return json.dumps({})
         
-        return json.dumps(res)
+        return json.loads(res)
 
     ''' 저장하기 '''
     def save(self, body):
