@@ -20,7 +20,7 @@ def Initialize(path):
     )
 
     # Logger
-    logger.Logger(path)
+    # logger.Logger(path)
 
     # Configure
     return configure.Configure(path)

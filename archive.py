@@ -6,38 +6,48 @@ import sys
 import json
 import github
 
-''' ì›ê²© ì €ì¥ì†Œ (using Github) '''
+''' ?ê²© ?€?¥ì†Œ (using Github) '''
 class Archive:
-    kDefaultArchive = 1
+    kDefaultData = 1
 
-    ''' ìƒì„±ì '''
+    ''' ?ì„±??'''
     def __init__(self, token, repo):
         try:
             self.repo = github.Github(token).get_user().get_repo(repo)
+            self.data = json.loads(
+                self.repo.get_issue(self.kDefaultData).body
+            )
 
         except Exception as e:
             pass
 
-    ''' ë¶ˆëŸ¬ì˜¤ê¸° '''
-    def load(self):
+    ''' ?€?¥í•˜ê¸?'''
+    def find(self, key):
+        if key not in self.data:
+            return {}
+
+        return self.data[key]
+
+    ''' ?€?¥í•˜ê¸?'''
+    def update(self, key, value):
         try:
-            res = self.repo.get_issue(self.kDefaultArchive).body
+            self.data[key] = value
 
         except Exception as e: 
-            return json.dumps({})
+            return False
         
-        return json.loads(res)
+        return True
 
-    ''' ì €ì¥í•˜ê¸° '''
-    def save(self, body):
+    ''' ?€?¥í•˜ê¸?'''
+    def save(self):
         try:
-            issue = self.repo.get_issue(self.kDefaultArchive)
+            issue = self.repo.get_issue(self.kDefaultData)
 
         except Exception as e: 
             return False
 
         try:
-            issue.edit(body=body)
+            issue.edit(body=json.dumps(self.data))
         
         except Exception as e: 
             return False
