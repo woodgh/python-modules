@@ -6,10 +6,10 @@ import sys
 import json
 
 ''' 
-    ?�경?�정
+    환경설정
 '''
 class Configure:
-    ''' ?�성??'''
+    ''' 생성자 '''
     def __init__(self, path):
         with io.open(path + '/app.json', 'r', encoding='utf-8-sig') as f:
             doc = json.load(f)
@@ -17,7 +17,7 @@ class Configure:
         for k, v in doc.items():
             self.makeVal(k, v)
 
-    ''' ?�경?�정 변???�성?�기 '''
+    ''' 환경설정 변수 만들기  '''
     def makeVal(self, key, val):
         try:
             for k, v in val.items():

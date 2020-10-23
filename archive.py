@@ -6,11 +6,11 @@ import sys
 import json
 import github
 
-''' ?ê²© ?€?¥ì†Œ (using Github) '''
+''' ì›ê²© ì €ì¥ì†Œ (using Github.Issue) '''
 class Archive:
     kDefaultData = 1
 
-    ''' ?ì„±??'''
+    ''' ?ï¿½ì„±??'''
     def __init__(self, token, repo):
         try:
             self.repo = github.Github(token).get_user().get_repo(repo)
@@ -21,14 +21,14 @@ class Archive:
         except Exception as e:
             pass
 
-    ''' ?€?¥í•˜ê¸?'''
+    ''' ì°¾ê¸° '''
     def find(self, key):
         if key not in self.data:
             return {}
 
         return self.data[key]
 
-    ''' ?€?¥í•˜ê¸?'''
+    ''' ì—…ë°ì´íŠ¸ í•˜ê¸° '''
     def update(self, key, value):
         try:
             self.data[key] = value
@@ -38,7 +38,7 @@ class Archive:
         
         return True
 
-    ''' ?€?¥í•˜ê¸?'''
+    ''' ì €ì¥í•˜ê¸° '''
     def save(self):
         try:
             issue = self.repo.get_issue(self.kDefaultData)
