@@ -10,7 +10,7 @@ import github
 class Archive:
     kDefaultData = 1
 
-    ''' ?�성??'''
+    ''' 생성자 '''
     def __init__(self, token, repo):
         try:
             self.repo = github.Github(token).get_user().get_repo(repo)
