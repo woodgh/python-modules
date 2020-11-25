@@ -13,7 +13,7 @@ import configure
 import archive
 
 ''' Initialize '''
-def Initialize(path):
+def Configure(path):
     # Requests warning disabled
     requests.packages.urllib3.disable_warnings(
         requests.packages.urllib3.exceptions.InsecureRequestWarning
@@ -24,6 +24,10 @@ def Initialize(path):
 
     # Configure
     return configure.Configure(path)
+
+''' Logger '''
+def Logger(path):
+    return logger.Logger(path)
 
 ''' Archive '''
 def Archive(token, repo):
