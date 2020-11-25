@@ -12,16 +12,8 @@ import logger
 import configure
 import archive
 
-''' Initialize '''
+''' Configure '''
 def Configure(path):
-    # Requests warning disabled
-    requests.packages.urllib3.disable_warnings(
-        requests.packages.urllib3.exceptions.InsecureRequestWarning
-    )
-
-    # Logger
-    # logger.Logger(path)
-
     # Configure
     return configure.Configure(path)
 
