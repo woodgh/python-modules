@@ -1,7 +1,4 @@
-# python-utils
-자주 사용하는 기능들을 모아서 묶음 형태로 만들었습니다.
-
-## Configure
+# Configure
 json 형태의 환경설정 파일을 불러올수 있는 모듈
 
 - 파일 이름은 app.json으로 저장합니다.
@@ -28,7 +25,7 @@ print CONFIG.DATA.DESC
 print CONFIG.DATA.TYPE
 ```
 
-## Logger
+# Logger
 간단한 로깅을 할 수 있는 모듈
 
 - 폴더를 지정하면 하위 폴더로 /logs/ 폴더 생성 후 로그를 기록 합니다.
@@ -40,7 +37,7 @@ logger = python-utils.Logger(
 logging.info('Hello world!')
 ```
 
-## Archive
+# Archive
 - Github.Issue 기능을 원격 저장소 처럼 사용 하며 기본적으로 0번 이슈를 사용하며 json 형태로 저장/불러온다.
 
 ```python
