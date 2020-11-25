@@ -14,7 +14,6 @@ import archive
 
 ''' Configure '''
 def Configure(path):
-    # Configure
     return configure.Configure(path)
 
 ''' Logger '''
