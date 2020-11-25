@@ -1,4 +1,4 @@
-# python-moudle
+# python-utils
 자주 사용하는 기능들을 모아서 묶음 형태로 만들었습니다.
 
 ## Configure
