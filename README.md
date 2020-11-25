@@ -7,13 +7,13 @@ json 형태의 환경설정 파일을 불러올수 있는 모듈
 - 환경설정 예제
 파일 이름은 app.json으로 저장합니다.
 
-```json
 { % highlight python linenos % }
+```json
 {
     "log_path":"C:\\Logs\\"
 }
-{ % endhighlight % }
 ```
+{ % endhighlight % }
 
 
 -  사용 예제
