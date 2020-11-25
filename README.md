@@ -8,7 +8,11 @@ json 형태의 환경설정 파일을 불러올수 있는 모듈
 
 ```json
 {
-    "log_path":"C:\\Logs\\"
+    "log_path":"C:\\Logs\\",
+    "data":{
+        "desc":"Hello world!",
+        "type":3,
+    }
 }
 ```
 
@@ -20,6 +24,8 @@ CONFIG = python-utils.Configure(
 )
 
 print CONFIG.LOG_PATH
+print CONFIG.DATA.DESC
+print CONFIG.DATA.TYPE
 ```
 
 ## Logger
