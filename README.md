@@ -52,3 +52,18 @@ MyData = archive.find('MyData')
 
 archive.save()
 ```
+
+# HtmlMaker
+- jinja2를 이용하여 간단하게 HTML 결과를 변환합니다.
+
+```html
+<!-- ./template/index.html -->
+<div>{{ name }}</div>
+```
+
+```python
+python-utils.HtmlMaker(
+    './template/index.html',
+    context={'name':'kim'}
+)
+```
