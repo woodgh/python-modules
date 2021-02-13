@@ -11,6 +11,7 @@ import requests
 import logger
 import configure
 import archive
+import html_maker
 
 ''' Configure '''
 def Configure(path):
@@ -23,3 +24,7 @@ def Logger(path):
 ''' Archive '''
 def Archive(token, repo):
     return archive.Archive(token, repo)
+
+''' HtmlMaker '''
+def HtmlMaker(path, context):
+    return html_maker.render(path, context)
